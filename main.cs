@@ -34,24 +34,6 @@ namespace TestMod
                 //ItemUtilities.SendToPlayerCharacter(ItemAssetsCollection.InstantiateSync(361));
                 ItemUtilities.SendToPlayerCharacter(ItemAssetsCollection.InstantiateSync(362));
                 
-                foreach (var formula in CraftingFormulaCollection.Instance.Entries)
-                {
-                    if (formula.id == "baseoutbone")
-                    {
-                        Debug.Log("在CraftingFormulaCollection里有");
-                        Debug.Log(JsonUtility.ToJson(formula));
-                    }
-                }
-
-                foreach (var formula in CraftingManager.UnlockedFormulaIDs)
-                {
-                    if (formula == "baseoutbone")
-                    {
-                        Debug.Log("在解锁物品id里有");
-                        Debug.Log(JsonUtility.ToJson(formula));
-                    }
-                }
-                
                 
             }
             
@@ -79,19 +61,45 @@ namespace TestMod
             //初始化流血buff
             MyBuffManager.InitializeFromBundle(myLoadedAssetBundle);
             RegisterOutbone(myLoadedAssetBundle);
+            RegisterAmyBone(myLoadedAssetBundle);
             RegisterOutboneRepairTool(myLoadedAssetBundle);
+            RegisterNormalFlyBullet(myLoadedAssetBundle);
             
             
+            if (MyPrefebManager.Instance == null)
+            {
+                Debug.Log("未实例管理器");
+                return;
+            }
+            MyPrefebManager.Instance.StartLoadDroneAsset();
+            
+        }
+
+        private static void RegisterAmyBone(AssetBundle bundle)
+        {
+            GameObject myPrefab= bundle.LoadAsset<GameObject>("Assets/mod old/MYMOD/OUTBONE/ArmyBone.prefab");
+            if (myPrefab)
+            {
+                Item customItemPrefab=myPrefab.GetComponent<Item>();
+                if (customItemPrefab == null)
+                {
+                    Debug.Log("null armybone");
+                    return ;
+                }
+                customItemPrefab.MaxDurability = 40f;
+                customItemPrefab.Durability = 40f;
+                AppendToArmyBone comp = myPrefab.AddComponent<AppendToArmyBone>();
+                ItemAssetsCollection.AddDynamicEntry(customItemPrefab);
+            }
         }
         private static bool RegisterOutbone(AssetBundle bundle)
         {
             GameObject myPrefab = bundle.LoadAsset<GameObject>("OUTBONE");
             
             //可调用 `ItemStatsSystem.ItemAssetsCollection.AddDynamicEntry(Item prefab)` 添加自定义物品
-            if (myPrefab != null)
+            if (myPrefab)
             {
-                // 实例化资源到场景中
-                //GameObject newins=Instantiate(myPrefab);
+                
                 Debug.Log("资源实例化成功！");
                 // 获取预制体上的 Item 组件（必须存在）
                 // 在加载出来的预制体资产上直接添加组件
@@ -119,7 +127,7 @@ namespace TestMod
                 myPrefab.AddComponent<SubSlot>();
                 
                 
-                ItemAssetsCollection.AddDynamicEntry(customItemPrefab);//测试方案
+                ItemAssetsCollection.AddDynamicEntry(customItemPrefab);
                 return true;
             }
 
@@ -134,13 +142,12 @@ namespace TestMod
             //可调用 `ItemStatsSystem.ItemAssetsCollection.AddDynamicEntry(Item prefab)` 添加自定义物品
             if (myPrefab != null)
             {
-                // 实例化资源到场景中
-                Instantiate(myPrefab);
+               
                 
                 Item customItemPrefab=myPrefab.GetComponent<Item>();
                 if (customItemPrefab == null)
                 {
-                    Debug.LogError("预制体 OUTBONE 上缺少 Item 组件，无法注册为物品");
+                    Debug.LogError("预制体 flyrepairtool 上缺少 Item 组件，无法注册为物品");
                     bundle.Unload(false);
                     return false;
                 }
@@ -151,7 +158,29 @@ namespace TestMod
                 return true;
             }
 
-            Debug.LogError("在 AssetBundle 中未找到指定资源：OUTBONE");
+            Debug.LogError("在 AssetBundle 中未找到指定资源：flyrepairtool");
+            return false;
+        }
+        private static bool RegisterNormalFlyBullet(AssetBundle bundle)
+        {
+            GameObject myPrefab = bundle.LoadAsset<GameObject>("Assets/mod old/MYMOD/OUTBONE/NormalFlyBullet.prefab");
+            //可调用 `ItemStatsSystem.ItemAssetsCollection.AddDynamicEntry(Item prefab)` 添加自定义物品
+            if (myPrefab != null)
+            {
+                
+                
+                Item customItemPrefab=myPrefab.GetComponent<Item>();
+                if (customItemPrefab == null)
+                {
+                    Debug.LogError("预制体 NormalFlyBullet 上缺少 Item 组件，无法注册为物品");
+                    bundle.Unload(false);
+                    return false;
+                }
+                ItemAssetsCollection.AddDynamicEntry(customItemPrefab);
+                return true;
+            }
+
+            Debug.LogError("在 AssetBundle 中未找到指定资源：NormalFlyBullet");
             return false;
         }
     }
@@ -159,7 +188,7 @@ namespace TestMod
     [HarmonyPatch(typeof(CraftingManager), "Load")]
     class Patch_CraftingManager_Load
     {
-        static void Prefix()  // 注意：Prefix 不需要参数，除非你想访问 __instance
+        static void Prefix()
         {
             // 获取配方集合的单例
             var collection = CraftingFormulaCollection.Instance;
@@ -182,12 +211,17 @@ namespace TestMod
             {
                 formulas.Add(myFormulas.repairoutbone);
             }
-            
-            
+            if (formulas.All(f => f.id != "armybone"))
+            {
+                formulas.Add(myFormulas.armybone);
+            }
+            if (formulas.All(f => f.id != "normalflybullet"))
+            {
+                formulas.Add(myFormulas.normalflybullet);
+            }
             
             Traverse.Create(collection).Field("_entries_ReadOnly").SetValue(null);
             
-            Debug.Log($"已注入自定义配方 {myFormulas.baseoutbone.id}");
         }
     }
     [HarmonyPatch]
@@ -210,7 +244,7 @@ namespace TestMod
             }
         }
     }
-    //TODO 可能不需要
+    /*
     [HarmonyPatch(typeof(LevelManager), "LoadOrCreateCharacterItemInstance")]
     static class Patch_AddDamageToCapacityComponent
     {
@@ -240,5 +274,5 @@ namespace TestMod
             // 示例：根据物品的typeID或Tag决定
             return item.TypeID == Somedata.OutboneId;
         }
-    }
+    }*/
 }

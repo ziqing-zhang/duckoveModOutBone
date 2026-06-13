@@ -635,17 +635,19 @@
     <ItemGroup>
         <Compile Include="CraftingFormulaManger.cs" />
         <Compile Include="DamageToCapacityComponent.cs" />
-        <Compile Include="flyboomCom.cs" />
+        <Compile Include="flying\applyToArmyBone.cs" />
+        <Compile Include="flying\DroneController.cs" />
         <Compile Include="HarmonyLoad.cs" />
+        <Compile Include="HealthBarGrayPatch.cs" />
         <Compile Include="main.cs" />
         <Compile Include="MyBuffs.cs" />
+        <Compile Include="MyPreFebManger.cs" />
         <Compile Include="MytagManger.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="somedata.cs" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Include="0Harmony.dll" />
-      <Content Include="outbone" />
       <Content Include="待办.txt" />
     </ItemGroup>
     <ItemGroup>

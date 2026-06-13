@@ -13,6 +13,7 @@ namespace OutBone.MyTagManager
         public Tag Outbone { get; set; }
         public Tag Equipment { get; set; }
         public Tag OutboneRepairTool { get; set; }
+        public Tag Flying { get; set; }
         private List<Tag> _allTags = new List<Tag>();
         private ReadOnlyCollection<Tag> _readonlyTags;
 
@@ -56,7 +57,8 @@ namespace OutBone.MyTagManager
         {
             string outboneTagName = "Outbone";
             string equipmentTagName = "Equipment";
-            string outboneRepairTool = "OutboneRepairTool";
+            string outboneRepairTool = "OutBoneRepairTool";
+            string flyingTagName = "Flying";
             if (bundle == null)
             {
                 Debug.LogError("InitializeFromBundle: bundle is null");
@@ -87,6 +89,10 @@ namespace OutBone.MyTagManager
             container.OutboneRepairTool = container.Get(outboneRepairTool);
             if (container.OutboneRepairTool == null)
                 Debug.LogWarning("Outbone repair tool not found in bundle");
+            
+            container.Flying = container.Get(flyingTagName);
+            if (container.Flying == null)
+                Debug.LogWarning($"Flying tag '{flyingTagName}' not found in bundle");
             
             _tags = container;
             _initialized = true;

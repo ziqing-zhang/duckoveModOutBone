@@ -1,6 +1,7 @@
 using System;
 using Duckov.Buffs;
 using System.Collections.Generic;
+using Duckov.UI.Patches;
 using ItemStatsSystem;
 using UnityEngine;
 using Duckov.Utilities;
@@ -40,6 +41,7 @@ public class DamageToCapacityComponent : MonoBehaviour
     {
         if (ownerItem == null) return;
         _totalLifeDrained = ownerItem.GetFloat(TotalDrainedKey, 0f);
+        
     }
 
     // 保存状态（每次totalLifeDrained变化时调用）
@@ -47,6 +49,7 @@ public class DamageToCapacityComponent : MonoBehaviour
     {
         if (ownerItem == null) return;
         ownerItem.SetFloat(TotalDrainedKey, _totalLifeDrained);
+        HealthBarGrayPatch.UpdateGrayBar(_boundHealth, _totalLifeDrained, _boundHealth.MaxHealth);
     }
 
     
@@ -143,6 +146,7 @@ public class DamageToCapacityComponent : MonoBehaviour
 
         Health.OnHurt += OnCharacterHurt;
         _boundHealth.CurrentHealth = _boundHealth.CurrentHealth + 10f;
+        HealthBarGrayPatch.UpdateGrayBar(_boundHealth, _totalLifeDrained, _boundHealth.MaxHealth);
         Debug.Log("完成装备");
         _isEquipped = true;
     }
@@ -190,6 +194,8 @@ public class DamageToCapacityComponent : MonoBehaviour
                 Debug.Log("获取角色buff控制器失败,物品可能已经被卸除");
             }
         }
+        if (_boundHealth != null)
+            HealthBarGrayPatch.UpdateGrayBar(_boundHealth, 0f, _boundHealth.MaxHealth);
         _boundHealth = null;
         _isEquipped = false;
         if (_totalLifeDrained > 20f)
@@ -267,12 +273,13 @@ public class DamageToCapacityComponent : MonoBehaviour
 
     private void OnDurabilityChanged(Item it)
     {
+        if (it != ownerItem) return;
         _totalLifeDrained = it.GetFloat("DamageToCapacity_TotalDrained");
         if (_isEquipped)
         {
             EquippedHealths[_boundHealth] = _totalLifeDrained;
+            HealthBarGrayPatch.UpdateGrayBar(_boundHealth, _totalLifeDrained, _boundHealth.MaxHealth);
         }
-        if (it != ownerItem) return;
         if (_totalLifeDrained <= 1f)
         {
             for (int i = 0; i < _myTags.Length; i++)
@@ -288,7 +295,7 @@ public class DamageToCapacityComponent : MonoBehaviour
     private bool IsEnemy(CharacterMainControl fromCharacter)
     {
         if (fromCharacter == null) return true;
-        return fromCharacter.Team != Teams.player;
+        return fromCharacter.Team == Teams.player || fromCharacter.Team == Teams.all;
     }
     
 }
@@ -297,9 +304,6 @@ public class SubSlot : MonoBehaviour
 {
     private Slot repairSlot;
     
-
-    
-
     private void Start()
     {
         var slots = GetComponent<SlotCollection>();
@@ -315,7 +319,7 @@ public class SubSlot : MonoBehaviour
         }
         else
         {
-            Debug.Log("未找到插槽：RepairSlot");
+            Debug.Log("outbone:未找到插槽");
         }
     }
 
@@ -333,12 +337,11 @@ public class SubSlot : MonoBehaviour
             return;
         }
         //TODO 触发使用，一段时间后卸除
-        //TODO 检查耐久值是否正确
         Debug.Log($"useslot.Content.Durability:{useslot.Content.Durability}");
         Debug.Log($"useslot.Master.GetFloat(\"DamageToCapacity_TotalDrained\"):{useslot.Master.GetFloat("DamageToCapacity_TotalDrained")}");
         float heal=math.min( useslot.Master.GetFloat("DamageToCapacity_TotalDrained"),useslot.Content.Durability);
         useslot.Master.SetFloat("DamageToCapacity_TotalDrained", useslot.Master.GetFloat("DamageToCapacity_TotalDrained")-heal);
-        useslot.Content.Durability = useslot.Master.Durability - heal;
+        useslot.Content.Durability -= heal;
         useslot.Master.DurabilityLoss += heal * 0.2f ;
         useslot.Master.Durability=useslot.Master.MaxDurability-useslot.Master.DurabilityLoss;
         Debug.Log($"修复耐久{heal}");
