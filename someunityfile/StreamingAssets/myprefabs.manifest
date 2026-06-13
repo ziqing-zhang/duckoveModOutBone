@@ -1,0 +1,108 @@
+ManifestFileVersion: 0
+CRC: 2822226445
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6398635a16aa5d9807e2a2856736042e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 55a645bbd920907f59756860e94796af
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 6398635a16aa5d9807e2a2856736042e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 783574151, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+- Class: 114
+  Script: {fileID: 1418101224, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: 2074923487, guid: 05f78464a6a359d4493cb9c48365010b, type: 3}
+- Class: 114
+  Script: {fileID: -2082035904, guid: 4652e2c28e0eab04c86a0db8107bceee, type: 3}
+- Class: 114
+  Script: {fileID: -1232048312, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: -1021627315, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: 1467660619, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: -1138092132, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: 1643773913, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: 1855659450, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: 269500879, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+- Class: 114
+  Script: {fileID: 1507211381, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+- Class: 114
+  Script: {fileID: -36304561, guid: 6d1b0359723106c419999d4f7cca6337, type: 3}
+- Class: 114
+  Script: {fileID: 1526319846, guid: a8b7dbf90e54bf247be76840f00dcecf, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: AstarPathfindingProject
+  ClassName: Pathfinding.GraphMask
+- AssemblyName: AstarPathfindingProject
+  ClassName: Pathfinding.StartEndModifier
+- AssemblyName: ECM2
+  ClassName: ECM2.CharacterMovement/Advanced
+- AssemblyName: ItemStatsSystem
+  ClassName: ItemStatsSystem.ItemAgentUtilities
+- AssemblyName: ItemStatsSystem
+  ClassName: ItemStatsSystem.Stat
+- AssemblyName: TeamSoda.Duckov.Utilities
+  ClassName: Duckov.Utilities.CustomDataCollection
+- AssemblyName: TeamSoda.Duckov.Utilities
+  ClassName: Duckov.Utilities.TagCollection
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent`1[DamageInfo]
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent`1[Health]
+Assets:
+- Assets/mod old/MYMOD/OUTBONE/explode-1.mp3
+- Assets/mod old/MYMOD/OUTBONE/Fx_export.prefab
+- Assets/mod old/MYMOD/OUTBONE/flying.prefab
+- Assets/mod old/MYMOD/OUTBONE/Cube.prefab
+- Assets/mod old/MYMOD/OUTBONE/handheld-quadcopter-takes-off.mp3
+Dependencies: []

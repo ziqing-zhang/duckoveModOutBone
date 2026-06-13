@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6067803631271380581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2164535217873842260}
+  - component: {fileID: -1081739806029627654}
+  - component: {fileID: -2670919109686001323}
+  - component: {fileID: -1833226403411529944}
+  m_Layer: 0
+  m_Name: ArmyBone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2164535217873842260
+Transform:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067803631271380581}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1081739806029627654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067803631271380581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 783574151, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeID: 95544
+  order: 0
+  displayName: "\u53CD\u5E94\u7532"
+  icon: {fileID: 21300000, guid: f366cff941e391f49a56557fad3db265, type: 3}
+  maxStackCount: 1
+  value: 3000
+  quality: 10
+  displayQuality: 5
+  weight: 15
+  tags:
+    list:
+    - {fileID: 11400000, guid: 912dc53607950d34a983e3612d498380, type: 2}
+    - {fileID: 11400000, guid: 40423280d83f16548b6dabe3e23905d2, type: 2}
+    - {fileID: 11400000, guid: aba20ab4759c73c4493ba547b202ac4c, type: 2}
+  agentUtilities:
+    agents:
+    - key: EquipmentModel
+      agentPrefab: {fileID: 9113789097364932381, guid: 312d99f7c46778e4f9e855c56f661176, type: 3}
+  itemGraphic: {fileID: 0}
+  stats: {fileID: 0}
+  slots: {fileID: -1833226403411529944}
+  modifiers: {fileID: -2670919109686001323}
+  variables:
+    entries:
+    - key: Durability
+      dataType: 1
+      data: 
+      display: 0
+    - key: DurabilityLoss
+      dataType: 1
+      data: 
+      display: 0
+  constants:
+    entries:
+    - key: MaxDurability
+      dataType: 1
+      data: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+      display: 0
+  inventory: {fileID: 0}
+  effects: []
+  usageUtilities: {fileID: 0}
+  soundKey: 
+--- !u!114 &-2670919109686001323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067803631271380581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -319703745, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: -1081739806029627654}
+  list:
+  - target: 2
+    enableInInventory: 0
+    key: MaxWeight
+    display: 0
+    type: 0
+    value: 40
+    overrideOrder: 0
+    order: 0
+  - target: 2
+    enableInInventory: 0
+    key: RunSpeed
+    display: 0
+    type: 0
+    value: 0.2
+    overrideOrder: 0
+    order: 0
+  - target: 2
+    enableInInventory: 0
+    key: StaminaDrainRate
+    display: 0
+    type: 100
+    value: -0.2
+    overrideOrder: 0
+    order: 0
+  - target: 2
+    enableInInventory: 0
+    key: InventoryCapacity
+    display: 0
+    type: 0
+    value: 8
+    overrideOrder: 0
+    order: 0
+  - target: 2
+    enableInInventory: 0
+    key: ADSTime
+    display: 0
+    type: 100
+    value: -0.1
+    overrideOrder: 0
+    order: 0
+  - target: 2
+    enableInInventory: 0
+    key: RecoilControl
+    display: 0
+    type: 100
+    value: -0.3
+    overrideOrder: 0
+    order: 0
+--- !u!114 &-1833226403411529944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067803631271380581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 936247221, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: -1081739806029627654}
+  list:
+  - key: RepairSlot
+    slotIcon: {fileID: 0}
+    requireTags:
+    - {fileID: 11400000, guid: eb1775024fb5913488693393f97a9177, type: 2}
+    excludeTags: []
+    forbidItemsWithSameID: 0
+  - key: flyingSlot
+    slotIcon: {fileID: 0}
+    requireTags:
+    - {fileID: 11400000, guid: 902b8b7b6b5c4f346856787959df58f1, type: 2}
+    excludeTags: []
+    forbidItemsWithSameID: 0

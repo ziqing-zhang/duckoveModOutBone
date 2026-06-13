@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5018850365197261389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1184329741176811084}
+  - component: {fileID: 6119908235842797528}
+  - component: {fileID: -8583858905567151234}
+  - component: {fileID: -5041153436067580995}
+  - component: {fileID: 7853681999201528270}
+  m_Layer: 0
+  m_Name: mybleeding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1184329741176811084
+Transform:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018850365197261389}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6119908235842797528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018850365197261389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1279902818, guid: 6a519feec1db63a448637035d8744273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  maxLayers: 1
+  exclusiveTag: 0
+  exclusiveTagPriority: 0
+  displayName: 
+  description: 
+  icon: {fileID: 0}
+  limitedLifeTime: 1
+  totalLifeTime: 5
+  effects:
+  - {fileID: -8583858905567151234}
+  hide: 0
+  currentLayers: 1
+  OnSetupEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  buffFxPfb: {fileID: 0}
+  fromWho: {fileID: 0}
+  fromWeaponID: 0
+--- !u!114 &-8583858905567151234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018850365197261389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1230226705, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  display: 0
+  description: "\u672A\u5B9A\u4E49\u63CF\u8FF0"
+  triggers:
+  - {fileID: -5041153436067580995}
+  filters: []
+  actions:
+  - {fileID: 7853681999201528270}
+--- !u!114 &-5041153436067580995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018850365197261389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1529262290, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 0}
+  period: 1
+  allowMultipleTrigger: 1
+--- !u!114 &7853681999201528270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018850365197261389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 778019281, guid: 6a519feec1db63a448637035d8744273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 0}
+  buff: {fileID: 0}
+  percentDamage: 0
+  damageValue: 3
+  percentDamageValue: 0
+  damageInfo:
+    damageType: 0
+    isFromBuffOrEffect: 0
+    damageValue: 0
+    ignoreArmor: 0
+    ignoreDifficulty: 0
+    critDamageFactor: 1
+    critRate: 0
+    armorPiercing: 0
+    elementFactors: []
+    isExplosion: 0
+    armorBreak: 0
+    finalDamage: 0
+    fromCharacter: {fileID: 0}
+    toDamageReceiver: {fileID: 0}
+    damagePoint: {x: 0, y: 0, z: 0}
+    damageNormal: {x: 0, y: 1, z: 0}
+    crit: -1
+    fromWeaponItemID: 0
+    buffChance: 0
+    buff: {fileID: 0}
+    bleedChance: 0
+  fx: {fileID: 0}

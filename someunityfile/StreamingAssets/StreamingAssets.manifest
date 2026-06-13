@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 4122658198
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: outbone
+      Dependencies: {}
+    Info_1:
+      Name: myprefabs
+      Dependencies: {}

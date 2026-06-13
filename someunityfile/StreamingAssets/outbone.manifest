@@ -1,0 +1,86 @@
+ManifestFileVersion: 0
+CRC: 3573357061
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5d5d77a51c43d9a886daeadbe25d22cd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0fb6cd6b58e07ad05640db6c93d929eb
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 5d5d77a51c43d9a886daeadbe25d22cd
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1279902818, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: 1292880744, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: 783574151, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+- Class: 114
+  Script: {fileID: 2074923487, guid: 05f78464a6a359d4493cb9c48365010b, type: 3}
+- Class: 114
+  Script: {fileID: 310200394, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: 778019281, guid: 6a519feec1db63a448637035d8744273, type: 3}
+- Class: 114
+  Script: {fileID: -1230226705, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+- Class: 114
+  Script: {fileID: -319703745, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+- Class: 114
+  Script: {fileID: 936247221, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+- Class: 114
+  Script: {fileID: 1529262290, guid: ba7fbc498f480f14a92ae3736d840e1e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: ItemStatsSystem
+  ClassName: ItemStatsSystem.ItemAgentUtilities
+- AssemblyName: ItemStatsSystem
+  ClassName: ItemStatsSystem.ItemAgentUtilities/AgentKeyPair
+- AssemblyName: ItemStatsSystem
+  ClassName: ItemStatsSystem.Items.Slot
+- AssemblyName: ItemStatsSystem
+  ClassName: ItemStatsSystem.ModifierDescription
+- AssemblyName: TeamSoda.Duckov.Core
+  ClassName: DamageInfo
+- AssemblyName: TeamSoda.Duckov.Utilities
+  ClassName: Duckov.Utilities.CustomData
+- AssemblyName: TeamSoda.Duckov.Utilities
+  ClassName: Duckov.Utilities.CustomDataCollection
+- AssemblyName: TeamSoda.Duckov.Utilities
+  ClassName: Duckov.Utilities.TagCollection
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent
+Assets:
+- Assets/mod old/MYMOD/OUTBONE/tags/Equipment.asset
+- Assets/mod old/MYMOD/OUTBONE/mybleeding.prefab
+- Assets/mod old/MYMOD/OUTBONE/OutBoneRepairTool.prefab
+- Assets/mod old/MYMOD/OUTBONE/tags/Flying.asset
+- Assets/mod old/MYMOD/OUTBONE/ArmyBone.prefab
+- Assets/mod old/MYMOD/OUTBONE/tags/Outbone.asset
+- Assets/mod old/MYMOD/OUTBONE/NormalFlyBullet.prefab
+- Assets/mod old/MYMOD/OUTBONE/tags/OutBoneRepairTool.asset
+- Assets/mod old/MYMOD/OUTBONE/OUTBONE.prefab
+Dependencies: []
